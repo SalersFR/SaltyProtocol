@@ -27,4 +27,12 @@ public class V1_7_R4 extends SProtocolVersion {
     public String getDisplayName() {
         return "v1.7.10_R4";
     }
+
+    @Override
+    public String getPackageName() {
+        return "net.minecraft.server.v1_7_R4";
+    }
+
+
+
 }

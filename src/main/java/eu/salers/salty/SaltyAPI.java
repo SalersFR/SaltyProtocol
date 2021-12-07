@@ -1,14 +1,21 @@
 package eu.salers.salty;
 
+import eu.salers.salty.manager.EventManager;
 import eu.salers.salty.manager.ProfilesManager;
 import eu.salers.salty.versions.ServerVersion;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class SaltyAPI {
 
     private final ServerVersion serverVersion = new ServerVersion();
     private final static SaltyAPI INSTANCE = new SaltyAPI();
     private final ProfilesManager profilesManager = new ProfilesManager();
+    private final EventManager eventManager = new EventManager();
+
+    private final ExecutorService handlerService = Executors.newSingleThreadExecutor();
 
     /**
      * i call this method to setup the whole thing
@@ -43,4 +50,12 @@ public class SaltyAPI {
     }
 
 
+
+    public ExecutorService getHandlerService() {
+        return handlerService;
+    }
+
+    public EventManager getEventManager() {
+        return eventManager;
+    }
 }

@@ -28,4 +28,12 @@ public class V1_8_R3 extends SProtocolVersion {
     public String getDisplayName() {
         return "v1.8_R3";
     }
+
+    @Override
+    public String getPackageName() {
+        return "net.minecraft.server.v1_8_R3";
+    }
+
+
+
 }

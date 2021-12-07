@@ -25,6 +25,13 @@ public class V1_16_R3 extends SProtocolVersion {
 
     @Override
     public String getDisplayName() {
-        return null;
+        return "v1.16_R3";
     }
+
+    @Override
+    public String getPackageName() {
+        return "net.minecraft.server.v1_16_R3";
+    }
+
+
 }

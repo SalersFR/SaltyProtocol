@@ -27,4 +27,11 @@ public class V1_9_R2 extends SProtocolVersion {
     public String getDisplayName() {
         return "v1.9_R2";
     }
+
+    @Override
+    public String getPackageName() {
+        return "net.minecraft.server.v1_9_R2";
+    }
+
+
 }

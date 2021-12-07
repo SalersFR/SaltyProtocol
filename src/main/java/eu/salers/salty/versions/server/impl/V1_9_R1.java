@@ -1,6 +1,7 @@
 package eu.salers.salty.versions.server.impl;
 
 import eu.salers.salty.versions.server.SProtocolVersion;
+import net.minecraft.server.v1_8_R3.PacketPlayOutEntity;
 import net.minecraft.server.v1_9_R1.EntityPlayer;
 import net.minecraft.server.v1_9_R1.NetworkManager;
 import net.minecraft.server.v1_9_R1.PlayerConnection;
@@ -20,6 +21,7 @@ public class V1_9_R1 extends SProtocolVersion {
         final Class networkManagerClass = networkManager.getClass();
         final Field protocolVersionField = networkManagerClass.getDeclaredField("protocolVersion");
         protocolVersionField.setAccessible(true);
+
         return protocolVersionField.getInt(networkManager);
     }
 
@@ -27,4 +29,11 @@ public class V1_9_R1 extends SProtocolVersion {
     public String getDisplayName() {
         return "v1.9_R1";
     }
+
+    @Override
+    public String getPackageName() {
+        return "net.minecraft.server.v1_9_R1";
+    }
+
+
 }

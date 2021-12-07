@@ -27,4 +27,11 @@ public class V1_13_R2 extends SProtocolVersion {
     public String getDisplayName() {
         return "v1.13_R2";
     }
+
+    @Override
+    public String getPackageName() {
+        return "net.minecraft.server.v1_13_R2";
+    }
+
+
 }

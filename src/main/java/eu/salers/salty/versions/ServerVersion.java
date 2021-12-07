@@ -1,7 +1,7 @@
 package eu.salers.salty.versions;
 
-import eu.salers.salty.versions.server.impl.*;
 import eu.salers.salty.versions.server.SProtocolVersion;
+import eu.salers.salty.versions.server.impl.*;
 import org.bukkit.Bukkit;
 
 //determine the server version
@@ -39,19 +39,19 @@ public class ServerVersion {
         return Bukkit.getBukkitVersion().contains("1.11");
     }
 
-    public static boolean isMC110() {
+    public boolean isMC110() {
         return Bukkit.getBukkitVersion().contains("1.10");
     }
 
-    public static boolean isMC19() {
+    public boolean isMC19() {
         return Bukkit.getBukkitVersion().contains("1.9");
     }
 
-    public static boolean isMC18() {
+    public boolean isMC18() {
         return Bukkit.getBukkitVersion().contains("1.8");
     }
 
-    public static boolean isMC17() {
+    public boolean isMC17() {
         return Bukkit.getBukkitVersion().contains("1.7");
     }
 
@@ -103,9 +103,6 @@ public class ServerVersion {
         return new V1_8_R3(); //idk lol
 
     }
-
-
-
 
 
 }
