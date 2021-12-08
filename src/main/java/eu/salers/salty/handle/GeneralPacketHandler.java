@@ -2,13 +2,18 @@ package eu.salers.salty.handle;
 
 
 import eu.salers.salty.SaltyAPI;
+import eu.salers.salty.manager.EventManager;
 import eu.salers.salty.versions.ServerVersion;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.ChannelPromise;
+import net.minecraft.util.io.netty.channel.ChannelHandler;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+
+import java.lang.reflect.Field;
+import java.util.concurrent.ExecutorService;
 
 public class GeneralPacketHandler {
 
@@ -18,7 +23,58 @@ public class GeneralPacketHandler {
 
         final ServerVersion serverVersion = SaltyAPI.get().getServerVersion();
 
+        final ExecutorService handlerService = SaltyAPI.get().getHandlerService();
+        final EventManager eventManager = SaltyAPI.get().getEventManager();
+
         if (serverVersion.isMC17()) {
+
+            final ChannelDuplexHandler channel = new ChannelDuplexHandler() {
+                @Override
+                public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
+
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+                    super.channelRead(channelHandlerContext, packet);
+                }
+
+                @Override
+                public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
+
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
+
+                    super.write(channelHandlerContext, packet, channelPromise);
+                }
+            };
+
+            //CREDITS HAWK ANTICHEAT BY ISLANDCOUT
+
+            Field channelField = null;
+            try {
+                channelField = ((org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer)
+                        player).getHandle().playerConnection.networkManager.getClass().getDeclaredField("m");
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+            channelField.setAccessible(true);
+            net.minecraft.util.io.netty.channel.Channel c = null;
+            try {
+                c = (net.minecraft.util.io.netty.channel.Channel) channelField
+                        .get(((org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer) player).getHandle().playerConnection.networkManager);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            channelField.setAccessible(false);
+            net.minecraft.util.io.netty.channel.ChannelPipeline pipeline = c.pipeline();
+            if (pipeline == null)
+                return;
+            String handlerName = player.getName();
+            c.eventLoop().submit(() -> {
+                        if (pipeline.get(handlerName) != null)
+                            pipeline.remove(handlerName);
+                        pipeline.addBefore("packet_handler", handlerName, (ChannelHandler) channel);
+                        return null;
+                    });
+
 
             //TODO
 
@@ -28,6 +84,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -35,6 +93,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
@@ -49,12 +108,16 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
 
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
+
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -69,6 +132,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -76,6 +141,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
@@ -89,6 +155,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -96,6 +164,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
@@ -109,6 +178,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -116,6 +187,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
@@ -129,6 +201,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -136,6 +210,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
@@ -149,6 +224,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -156,6 +233,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
@@ -171,6 +249,8 @@ public class GeneralPacketHandler {
                 @Override
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -178,6 +258,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }

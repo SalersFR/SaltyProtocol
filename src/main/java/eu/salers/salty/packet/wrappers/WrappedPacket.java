@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.WeakHashMap;
 
+//CREDITS TO FREQUENCY ANTICHEAT BY ELEVATED THE ELEVATOR
 public abstract class WrappedPacket {
 
     private final Map<String, Field> fields = new WeakHashMap<>();
