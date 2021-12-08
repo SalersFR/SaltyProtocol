@@ -1,7 +1,5 @@
 package eu.salers.salty.packet.wrappers;
 
-import net.minecraft.server.v1_8_R3.Packet;
-
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -11,10 +9,10 @@ public abstract class WrappedPacket {
 
     private final Map<String, Field> fields = new WeakHashMap<>();
 
-    private final Packet<?> instance;
-    private final Class<? extends Packet<?>> clazz;
+    private final Object instance;
+    private final Class<?> clazz;
 
-    public WrappedPacket(final Packet<?> instance, final Class<? extends Packet<?>> clazz) {
+    public WrappedPacket(final Object instance, final Class<?> clazz) {
         final Field[] declaredFields = clazz.getDeclaredFields();
 
         // Loop around all the declared fields and make them accessible
@@ -32,17 +30,15 @@ public abstract class WrappedPacket {
 
 
     /**
-     *
      * @param name - The name of the field you want to get
-     * @param <T> - The data-type
+     * @param <T>  - The data-type
      * @return - The value (possibly null) that we got from the field.
      */
     public <T> T get(final String name) {
         try {
             //noinspection unchecked
             return (T) fields.get(name).get(instance);
-        }
-        catch (final Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
 
@@ -50,15 +46,13 @@ public abstract class WrappedPacket {
     }
 
     /**
-     *
-     * @param name - The name of the field you want to edit.
+     * @param name       - The name of the field you want to edit.
      * @param alteration - The new object to set in the field.
      */
     public void set(final String name, final Object alteration) {
         try {
             fields.get(name).set(clazz, alteration);
-        }
-        catch (final Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }

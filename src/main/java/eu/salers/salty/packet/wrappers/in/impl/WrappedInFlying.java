@@ -3,8 +3,7 @@ package eu.salers.salty.packet.wrappers.in.impl;
 import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.packet.wrappers.in.WrappedInPacket;
 import eu.salers.salty.utils.ReflectionUtils;
-import net.minecraft.server.v1_8_R3.Packet;
-import net.minecraft.server.v1_8_R3.PacketPlayInFlying;
+
 
 public class WrappedInFlying extends WrappedInPacket {
 
@@ -12,8 +11,8 @@ public class WrappedInFlying extends WrappedInPacket {
     private float yaw, pitch;
     private boolean onGround ,hasPos, hasLook;
 
-    public WrappedInFlying(Packet<?> instance) {
-        super(instance, (Class<? extends Packet<?>>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().
+    public WrappedInFlying(Object instance) {
+        super(instance, (Class<?>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().
                 getProtocolVersionClass().getPackageName(), "PacketPlayInFlying"));
 
         x = get("x");
