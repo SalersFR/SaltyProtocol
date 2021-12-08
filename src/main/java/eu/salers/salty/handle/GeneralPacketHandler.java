@@ -20,6 +20,7 @@ public class GeneralPacketHandler {
 
     public static void inject(final Player player) {
 
+        SaltyAPI.get().getProfilesManager().add(player);
 
         final ServerVersion serverVersion = SaltyAPI.get().getServerVersion();
 

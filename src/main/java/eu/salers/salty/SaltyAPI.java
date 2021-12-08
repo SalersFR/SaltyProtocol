@@ -1,5 +1,6 @@
 package eu.salers.salty;
 
+import eu.salers.salty.listener.JoinLeaveListeners;
 import eu.salers.salty.manager.EventManager;
 import eu.salers.salty.manager.ProfilesManager;
 import eu.salers.salty.versions.ServerVersion;
@@ -24,6 +25,7 @@ public class SaltyAPI {
      */
 
     public void load(final JavaPlugin javaPlugin) {
+        new JoinLeaveListeners(javaPlugin);
 
     }
 

@@ -26,5 +26,11 @@ public class ProfilePlayer {
 
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 
+    public ClientVersion getClientVersion() {
+        return clientVersion;
+    }
 }
