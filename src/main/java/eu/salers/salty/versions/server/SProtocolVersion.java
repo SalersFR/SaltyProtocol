@@ -1,5 +1,6 @@
 package eu.salers.salty.versions.server;
 
+
 import org.bukkit.entity.Player;
 
 public abstract class SProtocolVersion {
@@ -9,6 +10,7 @@ public abstract class SProtocolVersion {
     public abstract String getDisplayName();
 
     public abstract String getPackageName();
+
 
 
 }

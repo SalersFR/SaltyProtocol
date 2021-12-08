@@ -1,7 +1,7 @@
 package eu.salers.salty.versions.server.impl;
 
 import eu.salers.salty.versions.server.SProtocolVersion;
-import net.minecraft.server.v1_8_R3.PacketPlayOutEntity;
+import net.minecraft.server.v1_9_R1.EnumProtocol;
 import net.minecraft.server.v1_9_R1.EntityPlayer;
 import net.minecraft.server.v1_9_R1.NetworkManager;
 import net.minecraft.server.v1_9_R1.PlayerConnection;
@@ -33,6 +33,11 @@ public class V1_9_R1 extends SProtocolVersion {
     @Override
     public String getPackageName() {
         return "net.minecraft.server.v1_9_R1";
+    }
+
+    //will make these methods abstract later
+    public EnumProtocol getPlayEnumProtocol() {
+        return EnumProtocol.PLAY;
     }
 
 

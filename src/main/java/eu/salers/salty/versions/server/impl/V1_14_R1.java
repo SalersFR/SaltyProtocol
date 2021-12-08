@@ -4,6 +4,7 @@ import eu.salers.salty.versions.server.SProtocolVersion;
 import net.minecraft.server.v1_14_R1.EntityPlayer;
 import net.minecraft.server.v1_14_R1.NetworkManager;
 import net.minecraft.server.v1_14_R1.PlayerConnection;
+import net.minecraft.server.v1_14_R1.EnumProtocol;
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -31,6 +32,11 @@ public class V1_14_R1 extends SProtocolVersion {
     @Override
     public String getPackageName() {
         return "net.minecraft.server.v1_14_R1";
+    }
+
+    //will make these methods abstract later
+    public EnumProtocol getPlayEnumProtocol() {
+        return EnumProtocol.PLAY;
     }
 
 

@@ -2,12 +2,19 @@ package eu.salers.salty.handle;
 
 
 import eu.salers.salty.SaltyAPI;
+import eu.salers.salty.event.listener.SaltyPacketListener;
 import eu.salers.salty.manager.EventManager;
 import eu.salers.salty.versions.ServerVersion;
+import eu.salers.salty.versions.server.impl.V1_13_R1;
+import eu.salers.salty.versions.server.impl.V1_7_R4;
+import eu.salers.salty.versions.server.impl.V1_8_R3;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.ChannelPromise;
+import net.minecraft.server.v1_8_R3.EnumProtocolDirection;
+import net.minecraft.server.v1_8_R3.Packet;
+import net.minecraft.server.v1_8_R3.PacketPlayInFlying;
 import net.minecraft.util.io.netty.channel.ChannelHandler;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -34,6 +41,7 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -70,11 +78,11 @@ public class GeneralPacketHandler {
                 return;
             String handlerName = player.getName();
             c.eventLoop().submit(() -> {
-                        if (pipeline.get(handlerName) != null)
-                            pipeline.remove(handlerName);
-                        pipeline.addBefore("packet_handler", handlerName, (ChannelHandler) channel);
-                        return null;
-                    });
+                if (pipeline.get(handlerName) != null)
+                    pipeline.remove(handlerName);
+                pipeline.addBefore("packet_handler", handlerName, (ChannelHandler) channel);
+                return null;
+            });
 
 
             //TODO
@@ -86,6 +94,8 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -110,6 +120,8 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -273,6 +285,8 @@ public class GeneralPacketHandler {
         } else if (serverVersion.isMC118()) {
 
         }
+
+
 
 
     }
