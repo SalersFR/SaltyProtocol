@@ -13,7 +13,7 @@ first we add it as a dependancy :
 Maven:
 ```xml
 
- <repository>
+<repository>
   <id>jitpack.io</id>
   <url>https://jitpack.io</url>
 </repository>
