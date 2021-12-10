@@ -82,6 +82,7 @@ public class GeneralPacketHandler {
                     pipeline.remove(handlerName);
                 pipeline.addBefore("packet_handler", handlerName, (ChannelHandler) channel);
                 return null;
+
             });
 
 
@@ -121,9 +122,6 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-
-
-
                     super.channelRead(channelHandlerContext, packet);
                 }
 
@@ -131,7 +129,6 @@ public class GeneralPacketHandler {
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
-
 
                     super.write(channelHandlerContext, packet, channelPromise);
                 }

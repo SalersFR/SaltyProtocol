@@ -12,25 +12,15 @@ import java.util.Locale;
 
 public class WrappedInUseEntity extends WrappedInPacket {
 
-    private int entityId;
-    private UseEntityAction action;
+
 
     public WrappedInUseEntity(Object instance) {
         super(instance, (Class<?>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion()
                 .getProtocolVersionClass().getPackageName(), "PacketPlayInUseEntity"));
 
-        this.entityId = get("a");
-        this.action = UseEntityAction.get(get("action").toString());
 
 
-    }
 
-    public int getEntityId() {
-        return entityId;
-    }
-
-    public UseEntityAction getAction() {
-        return action;
     }
 
     /**
@@ -42,7 +32,7 @@ public class WrappedInUseEntity extends WrappedInPacket {
 
     public Entity getHurtEntity(final World world) {
         for (final Entity entities : world.getEntities()) {
-            if (entities.getEntityId() == entityId)
+            if (entities.getEntityId() == getEntityId())
                 return entities;
 
         }
@@ -75,6 +65,14 @@ public class WrappedInUseEntity extends WrappedInPacket {
         }
 
 
+    }
+
+    public UseEntityAction getUseAction() {
+        return UseEntityAction.get(get("action").toString());
+    }
+
+    public int getEntityId() {
+        return get("a");
     }
 
 }

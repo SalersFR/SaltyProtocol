@@ -7,54 +7,45 @@ import eu.salers.salty.utils.ReflectionUtils;
 
 public class WrappedInFlying extends WrappedInPacket {
 
-    private double x,y,z;
-    private float yaw, pitch;
-    private boolean onGround ,hasPos, hasLook;
+
 
     public WrappedInFlying(Object instance) {
         super(instance, (Class<?>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().
                 getProtocolVersionClass().getPackageName(), "PacketPlayInFlying"));
 
-        x = get("x");
-        y = get("y");
-        z = get("z");
-        yaw = get("yaw");
-        pitch = get("pitch");
-        onGround = get("f");
-        hasPos = get("hasPos");
-        hasLook = get("hasLook");
+
 
     }
 
     public double getX() {
-        return x;
+        return  get("x");
     }
 
     public double getY() {
-        return y;
+        return get("y");
     }
 
     public double getZ() {
-        return z;
+        return get("z");
     }
 
     public float getYaw() {
-        return yaw;
+        return get("yaw");
     }
 
     public float getPitch() {
-        return pitch;
+        return get("pitch");
     }
 
     public boolean isOnGround() {
-        return onGround;
+        return get("f");
     }
 
     public boolean isHasPos() {
-        return hasPos;
+        return get("hasPos");
     }
 
     public boolean isHasLook() {
-        return hasLook;
+        return get("hasLook");
     }
 }
