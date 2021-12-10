@@ -1,8 +1,9 @@
 package eu.salers.salty;
 
 import eu.salers.salty.listener.JoinLeaveListeners;
-import eu.salers.salty.manager.EventManager;
+import eu.salers.salty.manager.EventsManager;
 import eu.salers.salty.manager.ProfilesManager;
+import eu.salers.salty.packet.type.PacketIDClasses;
 import eu.salers.salty.versions.ServerVersion;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,7 +15,9 @@ public class SaltyAPI {
     private final ServerVersion serverVersion = new ServerVersion();
     private final static SaltyAPI INSTANCE = new SaltyAPI();
     private final ProfilesManager profilesManager = new ProfilesManager();
-    private final EventManager eventManager = new EventManager();
+    private final EventsManager eventManager = new EventsManager();
+
+    private final PacketIDClasses packetIDClasses = new PacketIDClasses();
 
     private final ExecutorService handlerService = Executors.newSingleThreadExecutor();
 
@@ -26,6 +29,7 @@ public class SaltyAPI {
 
     public void load(final JavaPlugin javaPlugin) {
         new JoinLeaveListeners(javaPlugin);
+        this.packetIDClasses.loadPlayIn();
 
     }
 
@@ -52,12 +56,15 @@ public class SaltyAPI {
     }
 
 
-
     public ExecutorService getHandlerService() {
         return handlerService;
     }
 
-    public EventManager getEventManager() {
+    public EventsManager getEventManager() {
         return eventManager;
+    }
+
+    public PacketIDClasses getPacketIDClasses() {
+        return packetIDClasses;
     }
 }

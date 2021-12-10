@@ -1,0 +1,41 @@
+package eu.salers.salty.manager;
+
+import eu.salers.salty.SaltyAPI;
+import eu.salers.salty.event.impl.SaltyPacketInReceiveEvent;
+import eu.salers.salty.event.impl.SaltyPacketOutSendEvent;
+import eu.salers.salty.event.listener.SaltyPacketListener;
+import eu.salers.salty.packet.type.PacketType;
+import org.bukkit.entity.Player;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class EventsManager {
+
+    private final List<SaltyPacketListener> listeners;
+
+    public EventsManager() {
+        this.listeners = new LinkedList<>();
+    }
+
+    public void registerListener(final SaltyPacketListener saltyPacketListener) {
+        this.listeners.add(saltyPacketListener);
+    }
+
+    public void unregisterListener(final SaltyPacketListener saltyPacketListener) {
+        this.listeners.remove(saltyPacketListener);
+    }
+
+    public void handleReceive(final Object packet, final Player player) {
+        for (final SaltyPacketListener listeners : listeners)
+            listeners.onPacketInReceive(new SaltyPacketInReceiveEvent(packet, player,
+                    PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()))));
+
+    }
+
+    public void handleSend(final Object packet, final Player player) {
+        for (final SaltyPacketListener listeners : listeners)
+            listeners.onPacketOutSend(new SaltyPacketOutSendEvent(packet, player,
+                    PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()))));
+    }
+}

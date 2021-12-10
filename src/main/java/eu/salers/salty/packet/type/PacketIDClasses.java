@@ -20,7 +20,7 @@ public class PacketIDClasses {
     private final static String NMS_PACKAGE = SaltyAPI.get().getServerVersion().getProtocolVersionClass().getPackageName();
 
     //NB : i only added the most importants packets for now
-    private void loadPlayIn() {
+    public void loadPlayIn() {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInTeleportAccept").getClass(), 0x00);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInEntityNBTQuery").getClass(), 0x01);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInDifficultyChange").getClass(), 0x02);
@@ -75,9 +75,11 @@ public class PacketIDClasses {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInArmAnimation").getClass(), 0x2C);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInSpectate").getClass(), 0x2D);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInBlockPlace").getClass(), 0x2E);
-        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUseItem").getClass(), 0x2E);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUseItem").getClass(), 0x2F);
 
     }
 
-
+    public Map<Class<?>, Integer> getPacketMap() {
+        return packetMap;
+    }
 }
