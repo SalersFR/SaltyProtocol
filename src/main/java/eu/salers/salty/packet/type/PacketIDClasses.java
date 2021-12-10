@@ -3,6 +3,8 @@ package eu.salers.salty.packet.type;
 import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.utils.ReflectionUtils;
 import net.minecraft.server.v1_13_R1.PacketPlayInFlying;
+import net.minecraft.server.v1_13_R1.PacketPlayInResourcePackStatus;
+import net.minecraft.server.v1_13_R1.PacketPlayInTrSel;
 import net.minecraft.server.v1_7_R4.PacketPlayInPositionLook;
 
 import java.util.Map;
@@ -17,6 +19,7 @@ public class PacketIDClasses {
     private final Map<Class<?>, Integer> packetMap = new ConcurrentHashMap<>();
     private final static String NMS_PACKAGE = SaltyAPI.get().getServerVersion().getProtocolVersionClass().getPackageName();
 
+    //NB : i only added the most importants packets for now
     private void loadPlayIn() {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInTeleportAccept").getClass(), 0x00);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInEntityNBTQuery").getClass(), 0x01);
@@ -51,20 +54,28 @@ public class PacketIDClasses {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInFlying").getClass(), 0x14);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInVehicleMove").getClass(), 0x15);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInPickItem").getClass(), 0x17);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInAbilities").getClass(), 0x19);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInBlockDig").getClass(), 0x1A);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInEntityAction").getClass(), 0x1B);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInSteerVehicle").getClass(), 0x1C);
 
+        if(SaltyAPI.get().getServerVersion().isMC117() || SaltyAPI.get().getServerVersion().isMC118()) {
+            //TODO pong packet
+        } else {
+            packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInTransaction").getClass(), 0x1D);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInRecipeDisplayed").getClass(), 0x1F);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInItemName").getClass(), 0x20);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInResourcePackStatus").getClass(), 0x21);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInAdvancements").getClass(), 0x22);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInResourcePackStatus").getClass(), 0x23);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInHeldItemSlot").getClass(), 0x25);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUpdateSign").getClass(), 0x2B);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInArmAnimation").getClass(), 0x2C);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInSpectate").getClass(), 0x2D);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInBlockPlace").getClass(), 0x2E);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUseItem").getClass(), 0x2E);
 
     }
 

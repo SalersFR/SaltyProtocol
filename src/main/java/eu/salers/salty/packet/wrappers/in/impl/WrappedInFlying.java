@@ -8,17 +8,15 @@ import eu.salers.salty.utils.ReflectionUtils;
 public class WrappedInFlying extends WrappedInPacket {
 
 
-
     public WrappedInFlying(Object instance) {
         super(instance, (Class<?>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().
                 getProtocolVersionClass().getPackageName(), "PacketPlayInFlying"));
 
 
-
     }
 
     public double getX() {
-        return  get("x");
+        return get("x");
     }
 
     public double getY() {
