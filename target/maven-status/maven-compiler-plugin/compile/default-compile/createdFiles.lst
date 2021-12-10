@@ -1,6 +1,7 @@
 eu\salers\salty\player\version\ClientVersion.class
 eu\salers\salty\handle\GeneralPacketHandler.class
 eu\salers\salty\versions\server\impl\V1_9_R1.class
+eu\salers\salty\packet\wrappers\in\impl\WrappedInUseEntity$UseEntityAction.class
 eu\salers\salty\handle\GeneralPacketHandler$3.class
 eu\salers\salty\handle\GeneralPacketHandler$5.class
 eu\salers\salty\utils\ReflectionUtils.class
@@ -14,6 +15,7 @@ eu\salers\salty\event\listener\SaltyPacketListener.class
 eu\salers\salty\handle\GeneralPacketHandler$7.class
 eu\salers\salty\versions\server\impl\V1_11_R1.class
 eu\salers\salty\versions\server\impl\V1_14_R1.class
+eu\salers\salty\packet\PacketType$Server.class
 eu\salers\salty\packet\wrappers\out\impl\WrappedOutEntityRelMove.class
 eu\salers\salty\packet\wrappers\in\WrappedInPacket.class
 eu\salers\salty\versions\server\SProtocolVersion.class
@@ -27,6 +29,7 @@ eu\salers\salty\versions\server\impl\V1_8_R3.class
 eu\salers\salty\versions\server\impl\V1_7_R4.class
 eu\salers\salty\versions\server\impl\V1_9_R2.class
 eu\salers\salty\handle\GeneralPacketHandler$9.class
+eu\salers\salty\packet\PacketType$Client.class
 eu\salers\salty\packet\wrappers\in\impl\WrappedInFlying.class
 eu\salers\salty\handle\GeneralPacketHandler$4.class
 eu\salers\salty\handle\GeneralPacketHandler$1.class
@@ -35,6 +38,7 @@ eu\salers\salty\versions\ServerVersion.class
 eu\salers\salty\manager\EventManager.class
 eu\salers\salty\versions\server\impl\V1_16_R3.class
 eu\salers\salty\SaltyAPI.class
+eu\salers\salty\packet\wrappers\in\impl\WrappedInUseEntity.class
 eu\salers\salty\versions\server\impl\V1_12_R1.class
 eu\salers\salty\event\impl\SaltyPacketInReceiveEvent.class
 eu\salers\salty\handle\GeneralPacketHandler$6.class
