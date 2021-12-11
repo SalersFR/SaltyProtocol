@@ -9,7 +9,7 @@ public class WrappedInTransaction extends WrappedInPacket {
     public WrappedInTransaction(Object instance) {
         super(instance, ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().
                 getProtocolVersionClass().getPackageName(), "PacketPlayInTransaction"));
-        
+
     }
 
     public int getId() {

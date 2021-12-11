@@ -3,7 +3,6 @@ package eu.salers.salty.packet.wrappers.play.out.impl;
 import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.packet.wrappers.play.out.WrappedOutPacket;
 import eu.salers.salty.utils.ReflectionUtils;
-import eu.salers.salty.versions.ServerVersion;
 
 public class WrappedOutEntityVelocity extends WrappedOutPacket {
 
@@ -13,6 +12,7 @@ public class WrappedOutEntityVelocity extends WrappedOutPacket {
 
 
     }
+
     public double getX() {
         return ((int) get("b") / 8000.D);
     }

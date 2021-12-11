@@ -48,8 +48,7 @@ public class EventsManager {
         if (packetType == null) return;
 
         for (final SaltyPacketListener listeners : listeners)
-            listeners.onPacketOutSend(new SaltyPacketOutSendEvent(packet, player,
-                    packetType));
+            listeners.onPacketOutSend(new SaltyPacketOutSendEvent(packet, player, packetType));
 
 
     }

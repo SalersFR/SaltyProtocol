@@ -50,6 +50,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -107,6 +108,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -133,6 +135,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -159,6 +162,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -185,6 +189,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -211,6 +216,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
 
@@ -241,6 +247,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -267,6 +274,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -295,6 +303,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
