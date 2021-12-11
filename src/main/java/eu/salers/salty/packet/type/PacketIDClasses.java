@@ -2,11 +2,6 @@ package eu.salers.salty.packet.type;
 
 import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.utils.ReflectionUtils;
-import net.minecraft.server.v1_13_R1.PacketPlayInFlying;
-import net.minecraft.server.v1_13_R1.PacketPlayInResourcePackStatus;
-import net.minecraft.server.v1_13_R1.PacketPlayInTrSel;
-import net.minecraft.server.v1_7_R4.PacketPlayInPositionLook;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -19,7 +14,7 @@ public class PacketIDClasses {
     private final Map<Class<?>, Integer> packetMap = new ConcurrentHashMap<>();
     private final static String NMS_PACKAGE = SaltyAPI.get().getServerVersion().getProtocolVersionClass().getPackageName();
 
-    //NB : i only added the most importants packets for now
+    //NB : i only added the most important packets for now
     public void loadPlayIn() {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInTeleportAccept").getClass(), 0x00);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInEntityNBTQuery").getClass(), 0x01);
@@ -40,7 +35,7 @@ public class PacketIDClasses {
                     "PacketPlayInFlying").getClass(), "PacketPlayInPosition"), 0x11);
 
         if(SaltyAPI.get().getServerVersion().isMC17())
-            packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInPositionLook").getClass(), 0x11);
+            packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInPositionLook").getClass(), 0x12);
         else
             packetMap.put(ReflectionUtils.getSubClass(ReflectionUtils.getClassByPackage(NMS_PACKAGE,
                     "PacketPlayInFlying").getClass(), "PacketPlayInPositionLook"), 0x12);
@@ -69,7 +64,6 @@ public class PacketIDClasses {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInItemName").getClass(), 0x20);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInResourcePackStatus").getClass(), 0x21);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInAdvancements").getClass(), 0x22);
-        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInResourcePackStatus").getClass(), 0x23);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInHeldItemSlot").getClass(), 0x25);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUpdateSign").getClass(), 0x2B);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInArmAnimation").getClass(), 0x2C);
