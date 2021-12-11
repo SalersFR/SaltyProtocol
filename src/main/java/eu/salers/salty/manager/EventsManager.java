@@ -5,6 +5,7 @@ import eu.salers.salty.event.impl.SaltyPacketInReceiveEvent;
 import eu.salers.salty.event.impl.SaltyPacketOutSendEvent;
 import eu.salers.salty.event.listener.SaltyPacketListener;
 import eu.salers.salty.packet.type.PacketType;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.LinkedList;
@@ -27,15 +28,32 @@ public class EventsManager {
     }
 
     public void handleReceive(final Object packet, final Player player) {
+        if(SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) return;
+
+        final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()));
+
+        if(packetType == null) return;
+
         for (final SaltyPacketListener listeners : listeners)
             listeners.onPacketInReceive(new SaltyPacketInReceiveEvent(packet, player,
-                    PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()))));
+                    packetType));
+
+
 
     }
 
     public void handleSend(final Object packet, final Player player) {
+        if(SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) return;
+
+        final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()));
+
+        if(packetType == null) return;
+
         for (final SaltyPacketListener listeners : listeners)
             listeners.onPacketOutSend(new SaltyPacketOutSendEvent(packet, player,
-                    PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()))));
+                    packetType));
+
+
     }
+
 }
