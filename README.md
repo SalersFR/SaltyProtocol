@@ -87,3 +87,20 @@ public class MyPacketListener extends SaltyPacketListener {
 
 
 ```
+
+and finally, just register the listener class in your onEnable like this:
+
+
+```java
+
+  @Override
+    public void onEnable() {
+    
+        //load the api
+        SaltyAPI.get().load(this);
+        //register listeners
+        SaltyAPI.get().getEventManager().registerListener(new PacketListener());
+    }
+```
+
+if you need any help feel free to join my discord server here : https://discord.gg/p3PbG6KzUA
