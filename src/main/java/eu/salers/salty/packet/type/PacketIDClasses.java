@@ -40,6 +40,12 @@ public class PacketIDClasses {
 
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInChat"), 0x03);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInTabComplete"), 0x06);
+        if(serverVersion.isMC116() || serverVersion.isMC117() || serverVersion.isMC118()) {
+            //TODO INTERACT ENTITY PACKET
+        } else {
+            packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUseEntity"), 0x07);
+        }
+
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInWindowClick"), 0x08);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInCloseWindow"), 0x09);
 

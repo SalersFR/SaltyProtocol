@@ -12,6 +12,7 @@ public enum PacketType {
     IN_DIFFICULTY_CHANGE(0x02),
     IN_CHAT(0x03),
     IN_TAB_COMPLETE(0x06),
+    IN_USE_ENTITY(0x07),
     IN_WINDOW_CLICK(0x08),
     IN_CLOSE_WINDOW(0x09),
     IN_B_EDIT(0x0B),
