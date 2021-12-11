@@ -51,7 +51,7 @@ public class WrappedInUseEntity extends WrappedInPacket {
         return get("a");
     }
 
-    enum UseEntityAction {
+    public static enum UseEntityAction {
         INTERACT,
         ATTACK,
         INTERACT_AT;
