@@ -1,5 +1,6 @@
 package eu.salers.salty.versions;
 
+import eu.salers.salty.player.version.ClientVersion;
 import eu.salers.salty.versions.server.SProtocolVersion;
 import eu.salers.salty.versions.server.impl.*;
 import org.bukkit.Bukkit;
@@ -88,21 +89,23 @@ public class ServerVersion {
             return new V1_14_R1();
 
         if (isMC115())
-            return null; //TODO SUPPORT 1.15
+            return new V1_8_R3(); //idk lol
 
         if (isMC116())
             return new V1_16_R3();
 
         if (isMC117())
-            return null; //TODO SUPPORT 1.17
+            return new V1_8_R3(); //idk lol
 
         if (isMC118())
-            return null; //TODO SUPPORT 1.18
+            return new V1_8_R3(); //idk lol
 
 
         return new V1_8_R3(); //idk lol
 
     }
+
+
 
 
 }

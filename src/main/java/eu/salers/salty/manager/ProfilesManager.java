@@ -8,7 +8,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ProfilesManager {
 
-    /** Data cache **/
+    /**
+     * Data cache
+     **/
     private final Map<Player, ProfilePlayer> playerDataMap = new ConcurrentHashMap<>();
 
     /**
@@ -39,7 +41,7 @@ public class ProfilesManager {
      */
 
     public void remove(final Player player) {
-        this.playerDataMap.remove(player,this.getPlayerData(player));
+        this.playerDataMap.remove(player, this.getPlayerData(player));
     }
 
 }

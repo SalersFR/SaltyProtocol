@@ -2,7 +2,6 @@ package eu.salers.salty.event.listener;
 
 import eu.salers.salty.event.impl.SaltyPacketInReceiveEvent;
 import eu.salers.salty.event.impl.SaltyPacketOutSendEvent;
-import org.bukkit.event.Listener;
 
 public abstract class SaltyPacketListener {
 

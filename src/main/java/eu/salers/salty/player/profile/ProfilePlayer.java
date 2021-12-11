@@ -1,6 +1,8 @@
 package eu.salers.salty.player.profile;
 
 import eu.salers.salty.SaltyAPI;
+import eu.salers.salty.packet.wrappers.handshake.WrappedHandshakePacket;
+import eu.salers.salty.packet.wrappers.handshake.impl.WrappedInHandshake;
 import eu.salers.salty.player.version.ClientVersion;
 import org.bukkit.entity.Player;
 
@@ -20,10 +22,8 @@ public class ProfilePlayer {
         this.player = player;
     }
 
-    public void setup() throws NoSuchFieldException, IllegalAccessException {
-        this.clientVersion = new ClientVersion(SaltyAPI.get().getServerVersion().getProtocolVersionClass().getProtocolID(player));
-
-
+    public void handleHandshake(final WrappedInHandshake wrappedHandshakePacket) {
+        this.clientVersion = new ClientVersion(wrappedHandshakePacket.getProtocolID());
     }
 
     public Player getPlayer() {

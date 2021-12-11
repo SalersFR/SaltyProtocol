@@ -20,7 +20,6 @@ public class ReflectionUtils {
     }
 
 
-
     public static Class<?> getSubClass(Class<?> cls, String name) {
         if (cls == null) {
             return null;

@@ -1,7 +1,7 @@
-package eu.salers.salty.packet.wrappers.in.impl;
+package eu.salers.salty.packet.wrappers.play.in.impl;
 
 import eu.salers.salty.SaltyAPI;
-import eu.salers.salty.packet.wrappers.in.WrappedInPacket;
+import eu.salers.salty.packet.wrappers.play.in.WrappedInPacket;
 import eu.salers.salty.utils.ReflectionUtils;
 
 

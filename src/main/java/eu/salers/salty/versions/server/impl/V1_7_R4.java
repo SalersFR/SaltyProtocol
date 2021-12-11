@@ -12,17 +12,6 @@ import java.lang.reflect.Field;
 
 public class V1_7_R4 extends SProtocolVersion {
 
-    @Override
-    public int getProtocolID(final Player player) throws IllegalAccessException, NoSuchFieldException {
-        final CraftPlayer craftPlayer = (CraftPlayer) player;
-        final EntityPlayer entityPlayer = craftPlayer.getHandle();
-        final PlayerConnection connection = entityPlayer.playerConnection;
-        final NetworkManager networkManager = connection.networkManager;
-        final Class networkManagerClass = networkManager.getClass();
-        final Field protocolVersionField = networkManagerClass.getDeclaredField("protocolVersion");
-        protocolVersionField.setAccessible(true);
-        return protocolVersionField.getInt(networkManager);
-    }
 
     @Override
     public String getDisplayName() {
@@ -38,9 +27,6 @@ public class V1_7_R4 extends SProtocolVersion {
     public EnumProtocol getPlayEnumProtocol() {
         return EnumProtocol.PLAY;
     }
-
-
-
 
 
 }

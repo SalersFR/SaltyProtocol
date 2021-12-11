@@ -1,4 +1,4 @@
-package eu.salers.salty.packet.wrappers.in;
+package eu.salers.salty.packet.wrappers.play.in;
 
 import eu.salers.salty.packet.wrappers.WrappedPacket;
 

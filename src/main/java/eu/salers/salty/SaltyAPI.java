@@ -12,12 +12,13 @@ import java.util.concurrent.Executors;
 
 public class SaltyAPI {
 
-    private final ServerVersion serverVersion = new ServerVersion();
+
     private final static SaltyAPI INSTANCE = new SaltyAPI();
+    private final ServerVersion serverVersion = new ServerVersion();
     private final ProfilesManager profilesManager = new ProfilesManager();
     private final EventsManager eventManager = new EventsManager();
 
-    private final PacketIDClasses packetIDClasses = new PacketIDClasses();
+    private final PacketIDClasses packetIDClasses = new PacketIDClasses(this);
 
     private final ExecutorService handlerService = Executors.newSingleThreadExecutor();
 
@@ -54,7 +55,6 @@ public class SaltyAPI {
     public static SaltyAPI get() {
         return INSTANCE;
     }
-
 
     public ExecutorService getHandlerService() {
         return handlerService;

@@ -1,7 +1,7 @@
-package eu.salers.salty.packet.wrappers.out.impl;
+package eu.salers.salty.packet.wrappers.play.out.impl;
 
 import eu.salers.salty.SaltyAPI;
-import eu.salers.salty.packet.wrappers.out.WrappedOutPacket;
+import eu.salers.salty.packet.wrappers.play.out.WrappedOutPacket;
 import eu.salers.salty.utils.ReflectionUtils;
 
 public class WrappedOutEntityRelMove extends WrappedOutPacket {

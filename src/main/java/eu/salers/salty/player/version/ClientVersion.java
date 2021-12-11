@@ -169,13 +169,13 @@ public class ClientVersion {
         }
 
         return 0;
-        
+
     }
 
     /**
      * check if a version is newer than an another one
      *
-     * @param protocolID the compared protocol ID
+     * @param protocolID       the compared protocol ID
      * @param targetProtocolID the protocolID that will compare to the other one
      * @return if the protocol's version is more recent than the targeted one
      */

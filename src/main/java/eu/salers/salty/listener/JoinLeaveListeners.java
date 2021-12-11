@@ -19,18 +19,5 @@ public class JoinLeaveListeners implements Listener {
 
         GeneralPacketHandler.inject(event.getPlayer());
 
-        final ProfilePlayer profilePlayer = SaltyAPI.get().getProfilesManager().getPlayerData(event.getPlayer());
-
-
-
-        try {
-            profilePlayer.setup();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            System.out.println("[SaltyProtocol] failed to setup profile player.");
-        }
-
-
     }
 }

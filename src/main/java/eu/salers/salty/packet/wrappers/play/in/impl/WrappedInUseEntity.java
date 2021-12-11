@@ -1,9 +1,8 @@
-package eu.salers.salty.packet.wrappers.in.impl;
+package eu.salers.salty.packet.wrappers.play.in.impl;
 
 import eu.salers.salty.SaltyAPI;
-import eu.salers.salty.packet.wrappers.in.WrappedInPacket;
+import eu.salers.salty.packet.wrappers.play.in.WrappedInPacket;
 import eu.salers.salty.utils.ReflectionUtils;
-
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
@@ -13,12 +12,9 @@ import java.util.Locale;
 public class WrappedInUseEntity extends WrappedInPacket {
 
 
-
     public WrappedInUseEntity(Object instance) {
         super(instance, (Class<?>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion()
                 .getProtocolVersionClass().getPackageName(), "PacketPlayInUseEntity"));
-
-
 
 
     }
@@ -47,6 +43,13 @@ public class WrappedInUseEntity extends WrappedInPacket {
         return null;
     }
 
+    public UseEntityAction getUseAction() {
+        return UseEntityAction.get(get("action").toString());
+    }
+
+    public int getEntityId() {
+        return get("a");
+    }
 
     enum UseEntityAction {
         INTERACT,
@@ -65,14 +68,6 @@ public class WrappedInUseEntity extends WrappedInPacket {
         }
 
 
-    }
-
-    public UseEntityAction getUseAction() {
-        return UseEntityAction.get(get("action").toString());
-    }
-
-    public int getEntityId() {
-        return get("a");
     }
 
 }

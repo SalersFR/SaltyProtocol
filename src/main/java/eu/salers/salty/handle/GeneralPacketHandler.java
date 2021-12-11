@@ -3,11 +3,14 @@ package eu.salers.salty.handle;
 
 import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.manager.EventsManager;
+import eu.salers.salty.packet.wrappers.handshake.impl.WrappedInHandshake;
+import eu.salers.salty.player.profile.ProfilePlayer;
 import eu.salers.salty.versions.ServerVersion;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.ChannelPromise;
+import net.minecraft.server.v1_7_R4.PacketHandshakingInSetProtocol;
 import net.minecraft.util.io.netty.channel.ChannelHandler;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -27,6 +30,8 @@ public class GeneralPacketHandler {
         final ExecutorService handlerService = SaltyAPI.get().getHandlerService();
         final EventsManager eventManager = SaltyAPI.get().getEventManager();
 
+        final ProfilePlayer profilePlayer = SaltyAPI.get().getProfilesManager().getPlayerData(player);
+
         if (serverVersion.isMC17()) {
 
             final ChannelDuplexHandler channel = new ChannelDuplexHandler() {
@@ -34,6 +39,9 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+                    if(packet instanceof PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -89,7 +97,8 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-
+                    if(packet instanceof net.minecraft.server.v1_8_R3.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -115,6 +124,9 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
+                    if(packet instanceof net.minecraft.server.v1_9_R2.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
+
                     super.channelRead(channelHandlerContext, packet);
                 }
 
@@ -136,6 +148,9 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+                    if(packet instanceof net.minecraft.server.v1_10_R1.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -160,6 +175,9 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
+                    if(packet instanceof net.minecraft.server.v1_11_R1.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -183,6 +201,9 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
+                    if(packet instanceof net.minecraft.server.v1_12_R1.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -192,9 +213,13 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
+
                     super.write(channelHandlerContext, packet, channelPromise);
                 }
+
+
             };
+
 
             ChannelPipeline channelPipeline = ((org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer) player).getHandle().playerConnection.networkManager.channel.pipeline();
             channelPipeline.addBefore("packet_handler", player.getName(), channel);
@@ -205,6 +230,9 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+                    if(packet instanceof net.minecraft.server.v1_13_R2.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -228,6 +256,9 @@ public class GeneralPacketHandler {
                 public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
+
+                    if(packet instanceof net.minecraft.server.v1_14_R1.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
                     super.channelRead(channelHandlerContext, packet);
@@ -254,6 +285,9 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
+                    if(packet instanceof net.minecraft.server.v1_16_R3.PacketHandshakingInSetProtocol)
+                        profilePlayer.handleHandshake(new WrappedInHandshake(packet));
+
 
                     super.channelRead(channelHandlerContext, packet);
                 }
@@ -275,8 +309,6 @@ public class GeneralPacketHandler {
         } else if (serverVersion.isMC118()) {
 
         }
-
-
 
 
     }
