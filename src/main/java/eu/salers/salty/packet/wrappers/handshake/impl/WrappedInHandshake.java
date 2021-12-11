@@ -17,5 +17,4 @@ public class WrappedInHandshake extends WrappedHandshakePacket {
     }
 
 
-
 }

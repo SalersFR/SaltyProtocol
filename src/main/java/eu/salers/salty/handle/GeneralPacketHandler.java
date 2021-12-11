@@ -40,7 +40,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof PacketHandshakingInSetProtocol)
+                    if (packet instanceof PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -97,7 +97,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_8_R3.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_8_R3.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -124,7 +124,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_9_R2.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_9_R2.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
                     super.channelRead(channelHandlerContext, packet);
@@ -149,7 +149,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_10_R1.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_10_R1.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -175,7 +175,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_11_R1.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_11_R1.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -201,7 +201,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_12_R1.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_12_R1.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -231,7 +231,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_13_R2.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_13_R2.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -257,7 +257,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_14_R1.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_14_R1.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 
@@ -285,7 +285,7 @@ public class GeneralPacketHandler {
 
                     handlerService.execute(() -> eventManager.handleReceive(packet, player));
 
-                    if(packet instanceof net.minecraft.server.v1_16_R3.PacketHandshakingInSetProtocol)
+                    if (packet instanceof net.minecraft.server.v1_16_R3.PacketHandshakingInSetProtocol)
                         profilePlayer.handleHandshake(new WrappedInHandshake(packet));
 
 

@@ -4,13 +4,12 @@ This is a packet api for Minecraft Java Edition, it supports 1.7 to 1.18 (only 1
 
 here is how to use it:
 
-
-
-# HOW TO USE SALTY PROTOCOL 
+# HOW TO USE SALTY PROTOCOL
 
 first we add it as a dependancy :
 
 Maven:
+
 ```xml
 
 <repository>
@@ -27,6 +26,7 @@ Maven:
 ```
 
 Gradle:
+
 ```gradle
 
 allprojects {

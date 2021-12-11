@@ -4,15 +4,12 @@ import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.packet.wrappers.play.out.WrappedOutPacket;
 import eu.salers.salty.utils.ReflectionUtils;
 
-public class WrappedOutEntityRelMove extends WrappedOutPacket {
+public class WrappedOutEntityRelMoveLook extends WrappedOutPacket {
 
-
-    public WrappedOutEntityRelMove(Object instance) {
+    public WrappedOutEntityRelMoveLook(Object instance) {
         super(instance, (Class<?>) ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().
                 getProtocolVersionClass().getPackageName(), SaltyAPI.get().getServerVersion().isMC17()
-                ? "PacketPlayOutEntityRelMove" : "PacketPlayOutEntity$PacketPlayOutEntityRelMove"));
-
-
+                ? "PacketPlayOutEntityRelMoveLook" : "PacketPlayOutEntity$PacketPlayOutEntityRelMoveLook"));
     }
 
     public int getEntityId() {
@@ -28,8 +25,17 @@ public class WrappedOutEntityRelMove extends WrappedOutPacket {
     }
 
     private double getRawDeltaZ() {
-        return get("z");
+        return get("d");
     }
+
+    public float getYaw() {
+        return get("e");
+    }
+
+    public float getPitch() {
+        return get("f");
+    }
+
 
     public double getDeltaX() {
         return getRawDeltaX() / 32.D;
@@ -42,4 +48,6 @@ public class WrappedOutEntityRelMove extends WrappedOutPacket {
     public double getDeltaZ() {
         return getRawDeltaZ() / 32.D;
     }
+
+
 }

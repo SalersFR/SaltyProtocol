@@ -1,7 +1,5 @@
 package eu.salers.salty.player.profile;
 
-import eu.salers.salty.SaltyAPI;
-import eu.salers.salty.packet.wrappers.handshake.WrappedHandshakePacket;
 import eu.salers.salty.packet.wrappers.handshake.impl.WrappedInHandshake;
 import eu.salers.salty.player.version.ClientVersion;
 import org.bukkit.entity.Player;

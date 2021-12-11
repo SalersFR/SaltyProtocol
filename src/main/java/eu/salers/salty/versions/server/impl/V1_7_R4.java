@@ -1,14 +1,7 @@
 package eu.salers.salty.versions.server.impl;
 
 import eu.salers.salty.versions.server.SProtocolVersion;
-import net.minecraft.server.v1_7_R4.EntityPlayer;
 import net.minecraft.server.v1_7_R4.EnumProtocol;
-import net.minecraft.server.v1_7_R4.NetworkManager;
-import net.minecraft.server.v1_7_R4.PlayerConnection;
-import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-
-import java.lang.reflect.Field;
 
 public class V1_7_R4 extends SProtocolVersion {
 

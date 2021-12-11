@@ -22,6 +22,10 @@ public class SaltyAPI {
 
     private final ExecutorService handlerService = Executors.newSingleThreadExecutor();
 
+    public static SaltyAPI get() {
+        return INSTANCE;
+    }
+
     /**
      * i call this method to setup the whole thing
      *
@@ -50,10 +54,6 @@ public class SaltyAPI {
 
     public ProfilesManager getProfilesManager() {
         return profilesManager;
-    }
-
-    public static SaltyAPI get() {
-        return INSTANCE;
     }
 
     public ExecutorService getHandlerService() {

@@ -40,7 +40,7 @@ public class PacketIDClasses {
 
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInChat"), 0x03);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInTabComplete"), 0x06);
-        if(serverVersion.isMC116() || serverVersion.isMC117() || serverVersion.isMC118()) {
+        if (serverVersion.isMC116() || serverVersion.isMC117() || serverVersion.isMC118()) {
             //TODO INTERACT ENTITY PACKET
         } else {
             packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUseEntity"), 0x07);
@@ -127,13 +127,15 @@ public class PacketIDClasses {
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutNamedEntitySpawn"), 0x101);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutSpawnEntityLiving"), 0x102);
 
-        if(serverVersion.isMC17())
+        if (serverVersion.isMC17())
             packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntityRelMove"), 0x103);
-        else packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntity$PacketPlayOutEntityRelMove"), 0x103);
+        else
+            packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntity$PacketPlayOutEntityRelMove"), 0x103);
 
-        if(serverVersion.isMC17())
+        if (serverVersion.isMC17())
             packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntityRelMoveLook"), 0x104);
-        else packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntity$PacketPlayOutEntityRelMoveLook"), 0x104);
+        else
+            packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntity$PacketPlayOutEntityRelMoveLook"), 0x104);
 
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntityVelocity"), 0x105);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutExplosion"), 0x106);
@@ -146,11 +148,7 @@ public class PacketIDClasses {
         }
 
 
-
-
-
     }
-
 
 
     public Map<Class<?>, Integer> getPacketMap() {
