@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 public class EventsManager {
 
@@ -41,7 +43,13 @@ public class EventsManager {
     }
 
     public void handleSend(final Object packet, final Player player) {
-        if (SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) return;
+        if (SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) {
+            return;
+        } else {
+            if (packet == null) {
+                Objects.requireNonNull(packet).toString();
+            }
+        }
 
         final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()));
 
