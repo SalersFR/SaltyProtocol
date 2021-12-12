@@ -51,6 +51,10 @@ public class EventsManager {
             }
         }
 
+        final Integer packetIDClass = SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass());
+
+        if(packetIDClass == null || packetIDClass == 0) return;
+
         final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()));
 
         if (packetType == null) return;
