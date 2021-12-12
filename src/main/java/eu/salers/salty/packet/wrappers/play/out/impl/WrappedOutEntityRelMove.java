@@ -28,7 +28,7 @@ public class WrappedOutEntityRelMove extends WrappedOutPacket {
     }
 
     private double getRawDeltaZ() {
-        return get("z");
+        return get("d");
     }
 
     public double getDeltaX() {
