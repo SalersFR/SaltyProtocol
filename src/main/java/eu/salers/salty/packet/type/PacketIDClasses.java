@@ -4,6 +4,7 @@ import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.utils.ReflectionUtils;
 import eu.salers.salty.versions.ServerVersion;
 
+import java.sql.Ref;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -146,6 +147,9 @@ public class PacketIDClasses {
         } else {
             packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutTransaction"), 0x108);
         }
+
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutPosition"), 0x109);
+
 
 
     }
