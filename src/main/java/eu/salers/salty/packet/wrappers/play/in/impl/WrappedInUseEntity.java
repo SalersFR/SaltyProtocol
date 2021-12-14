@@ -27,12 +27,8 @@ public class WrappedInUseEntity extends WrappedInPacket {
      */
 
     public Entity getHurtEntity(final World world) {
-        for (final Entity entities : world.getEntities()) {
-            if (entities.getEntityId() == getEntityId())
-                return entities;
+        return world.getEntities().stream().filter(entity -> entity.getEntityId() == getEntityId()).findAny().get();
 
-        }
-        return null;
     }
 
     //same as above but it's a lag bomb
