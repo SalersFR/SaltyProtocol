@@ -6,7 +6,7 @@ import eu.salers.salty.utils.ReflectionUtils;
 
 public class WrappedOutPosition extends WrappedOutPacket {
 
-    public WrappedOutPosition(Object instance, Class<?> clazz) {
+    public WrappedOutPosition(Object instance) {
         super(instance, ReflectionUtils.getClassByPackage(SaltyAPI.get().getServerVersion().getProtocolVersionClass().
                 getPackageName(), "PacketPlayOutPosition"));
     }
