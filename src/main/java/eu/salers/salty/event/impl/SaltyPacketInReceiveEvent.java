@@ -6,7 +6,8 @@ import org.bukkit.entity.Player;
 
 public class SaltyPacketInReceiveEvent extends SaltyPacketEvent {
 
-    public SaltyPacketInReceiveEvent(Object packet, Player player, PacketType packetType) {
-        super(packet, player, packetType);
+
+    public SaltyPacketInReceiveEvent(Object packet, Player player, PacketType packetType, long time) {
+        super(packet, player, packetType, time);
     }
 }

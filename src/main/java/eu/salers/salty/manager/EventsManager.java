@@ -37,7 +37,7 @@ public class EventsManager {
 
         for (final SaltyPacketListener listeners : listeners)
             listeners.onPacketInReceive(new SaltyPacketInReceiveEvent(packet, player,
-                    packetType));
+                    packetType, System.currentTimeMillis()));
 
 
     }
@@ -60,7 +60,7 @@ public class EventsManager {
         if (packetType == null) return;
 
         for (final SaltyPacketListener listeners : listeners)
-            listeners.onPacketOutSend(new SaltyPacketOutSendEvent(packet, player, packetType));
+            listeners.onPacketOutSend(new SaltyPacketOutSendEvent(packet, player, packetType, System.currentTimeMillis()));
 
 
     }

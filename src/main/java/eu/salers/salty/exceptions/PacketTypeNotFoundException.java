@@ -1,4 +1,4 @@
-package eu.salers.salty.execptions;
+package eu.salers.salty.exceptions;
 
 public class PacketTypeNotFoundException extends Exception {
 

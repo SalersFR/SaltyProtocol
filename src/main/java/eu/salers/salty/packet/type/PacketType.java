@@ -1,6 +1,6 @@
 package eu.salers.salty.packet.type;
 
-import eu.salers.salty.execptions.PacketTypeNotFoundException;
+import eu.salers.salty.exceptions.PacketTypeNotFoundException;
 
 import java.util.Arrays;
 import java.util.Optional;

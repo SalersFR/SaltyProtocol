@@ -8,11 +8,13 @@ public abstract class SaltyPacketEvent {
     private final Object packet;
     private final Player player;
     private final PacketType packetType;
+    private final long time;
 
-    public SaltyPacketEvent(final Object packet, final Player player, final PacketType packetType) {
+    public SaltyPacketEvent(final Object packet, final Player player, final PacketType packetType, final long time) {
         this.packet = packet;
         this.player = player;
         this.packetType = packetType;
+        this.time = time;
     }
 
     public Object getPacket() {
@@ -25,5 +27,9 @@ public abstract class SaltyPacketEvent {
 
     public PacketType getPacketType() {
         return packetType;
+    }
+
+    public long getTime() {
+        return time;
     }
 }

@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 public class SaltyPacketOutSendEvent extends SaltyPacketEvent {
 
 
-    public SaltyPacketOutSendEvent(Object packet, Player player, PacketType packetType) {
-        super(packet, player, packetType);
+    public SaltyPacketOutSendEvent(Object packet, Player player, PacketType packetType, long time) {
+        super(packet, player, packetType, time);
     }
 }
