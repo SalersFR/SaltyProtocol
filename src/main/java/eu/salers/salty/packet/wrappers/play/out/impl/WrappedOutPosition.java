@@ -22,4 +22,12 @@ public class WrappedOutPosition extends WrappedOutPacket {
     public double getZ() {
         return get("c");
     }
+
+    public float getYaw() {
+        return get("d");
+    }
+
+    public float getPitch() {
+        return get("e");
+    }
 }
