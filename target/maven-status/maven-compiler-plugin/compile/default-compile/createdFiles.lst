@@ -2,17 +2,14 @@ eu\salers\salty\packet\type\PacketIDClasses.class
 eu\salers\salty\handle\GeneralPacketHandler$3.class
 eu\salers\salty\utils\ReflectionUtils.class
 eu\salers\salty\versions\server\impl\V1_13_R2.class
-eu\salers\salty\packet\wrappers\play\in\impl\WrappedInTransaction.class
 eu\salers\salty\handle\GeneralPacketHandler$7.class
 eu\salers\salty\packet\wrappers\play\in\impl\WrappedInFlying.class
 eu\salers\salty\versions\server\impl\V1_11_R1.class
 eu\salers\salty\packet\wrappers\play\in\impl\WrappedInUseEntity$UseEntityAction.class
 eu\salers\salty\versions\server\impl\V1_14_R1.class
-eu\salers\salty\exceptions\NotAnyFieldTypeException.class
+eu\salers\salty\execptions\PacketTypeNotFoundException.class
 eu\salers\salty\listener\JoinLeaveListeners.class
 eu\salers\salty\versions\server\impl\V1_13_R1.class
-eu\salers\salty\packet\wrappers\play\out\impl\WrappedOutEntityVelocity.class
-eu\salers\salty\packet\wrappers\play\in\impl\WrappedInHeldItemSlot.class
 eu\salers\salty\versions\server\impl\V1_8_R3.class
 eu\salers\salty\packet\type\PacketType.class
 eu\salers\salty\handle\GeneralPacketHandler$9.class
@@ -24,7 +21,6 @@ eu\salers\salty\SaltyAPI.class
 eu\salers\salty\versions\server\impl\V1_12_R1.class
 eu\salers\salty\event\impl\SaltyPacketInReceiveEvent.class
 eu\salers\salty\handle\GeneralPacketHandler$6.class
-eu\salers\salty\exceptions\PacketTypeNotFoundException.class
 eu\salers\salty\player\version\ClientVersion.class
 eu\salers\salty\handle\GeneralPacketHandler.class
 eu\salers\salty\versions\server\impl\V1_9_R1.class
@@ -38,7 +34,6 @@ eu\salers\salty\packet\wrappers\WrappedPacket.class
 eu\salers\salty\Plugin$1.class
 eu\salers\salty\event\listener\SaltyPacketListener.class
 eu\salers\salty\packet\wrappers\play\in\WrappedInPacket.class
-eu\salers\salty\packet\wrappers\play\out\impl\WrappedOutEntityTeleport.class
 eu\salers\salty\versions\server\SProtocolVersion.class
 eu\salers\salty\handle\GeneralPacketHandler$2.class
 eu\salers\salty\manager\EventsManager.class
@@ -51,5 +46,3 @@ eu\salers\salty\versions\server\impl\V1_9_R2.class
 eu\salers\salty\packet\wrappers\play\out\WrappedOutPacket.class
 eu\salers\salty\handle\GeneralPacketHandler$4.class
 eu\salers\salty\handle\GeneralPacketHandler$1.class
-eu\salers\salty\packet\wrappers\play\out\impl\WrappedOutPosition.class
-eu\salers\salty\packet\wrappers\play\out\impl\WrappedOutEntityRelMoveLook.class

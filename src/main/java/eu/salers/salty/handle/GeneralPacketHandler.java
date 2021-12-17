@@ -11,9 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.ChannelPromise;
 import net.minecraft.server.v1_7_R4.PacketHandshakingInSetProtocol;
-import net.minecraft.server.v1_8_R3.Packet;
 import net.minecraft.util.io.netty.channel.ChannelHandler;
-import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -52,7 +50,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_7_R4.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -110,7 +108,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof Packet)) return;
+                    if(packet == null || player == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -137,7 +135,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_9_R2.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -164,7 +162,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_10_R1.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -191,7 +189,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_11_R1.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -218,7 +216,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_12_R1.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
 
@@ -249,7 +247,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_13_R2.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -276,7 +274,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_14_R1.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);
@@ -305,7 +303,7 @@ public class GeneralPacketHandler {
                 @Override
                 public void write(ChannelHandlerContext channelHandlerContext, Object packet, ChannelPromise channelPromise) throws Exception {
 
-                    if(player == null || !(packet instanceof net.minecraft.server.v1_16_R3.Packet)) return;
+                    if(packet == null) return;
                     handlerService.execute(() -> eventManager.handleSend(packet, player));
 
                     super.write(channelHandlerContext, packet, channelPromise);

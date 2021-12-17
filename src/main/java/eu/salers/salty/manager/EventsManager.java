@@ -5,11 +5,12 @@ import eu.salers.salty.event.impl.SaltyPacketInReceiveEvent;
 import eu.salers.salty.event.impl.SaltyPacketOutSendEvent;
 import eu.salers.salty.event.listener.SaltyPacketListener;
 import eu.salers.salty.packet.type.PacketType;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 public class EventsManager {
 
@@ -28,9 +29,9 @@ public class EventsManager {
     }
 
     public void handleReceive(final Object packet, final Player player) {
-        if (SaltyAPI.get().getPacketIDClasses().getPacketPlayInMap().values().isEmpty()) return;
+        if (SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) return;
 
-        final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketPlayInMap().get(packet.getClass()));
+        final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()));
 
         if (packetType == null) return;
 
@@ -42,17 +43,19 @@ public class EventsManager {
     }
 
     public void handleSend(final Object packet, final Player player) {
-        if (SaltyAPI.get().getPacketIDClasses().getPacketPlayOutMap().values().isEmpty())
+        if (SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) {
             return;
+        } else {
+            if (packet == null) {
+                Objects.requireNonNull(packet).toString();
+            }
+        }
 
-        final Integer packetIDClass = SaltyAPI.get().getPacketIDClasses().getPacketPlayOutMap().get(packet.getClass());
-        
+        final Integer packetIDClass = SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass());
 
-        if (packetIDClass == null || packetIDClass == 0) return;
+        if(packetIDClass == null || packetIDClass == 0) return;
 
-
-
-        final PacketType packetType = PacketType.getById(packetIDClass);
+        final PacketType packetType = PacketType.getById(SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass()));
 
         if (packetType == null) return;
 
