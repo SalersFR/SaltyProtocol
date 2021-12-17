@@ -34,7 +34,8 @@ public class SaltyAPI {
 
     public void load(final JavaPlugin javaPlugin) {
         new JoinLeaveListeners(javaPlugin);
-        this.packetIDClasses.loadPlayIn();
+        this.packetIDClasses.loadPlay();
+
 
     }
 

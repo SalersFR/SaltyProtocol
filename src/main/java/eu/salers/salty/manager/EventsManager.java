@@ -45,10 +45,6 @@ public class EventsManager {
     public void handleSend(final Object packet, final Player player) {
         if (SaltyAPI.get().getPacketIDClasses().getPacketMap().values().isEmpty()) {
             return;
-        } else {
-            if (packet == null) {
-                Objects.requireNonNull(packet).toString();
-            }
         }
 
         final Integer packetIDClass = SaltyAPI.get().getPacketIDClasses().getPacketMap().get(packet.getClass());

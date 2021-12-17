@@ -26,7 +26,7 @@ public class PacketIDClasses {
     }
 
     //NB : i only added the most important packets for now
-    public void loadPlayIn() {
+    public void loadPlay() {
         final ServerVersion serverVersion = SaltyAPI.get().getServerVersion();
 
         if (!serverVersion.isMC17() && !serverVersion.isMC18())
@@ -117,12 +117,6 @@ public class PacketIDClasses {
         if (!serverVersion.isMC17() && !serverVersion.isMC18())
             packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayInUseItem"), 0x2F);
 
-    }
-
-    //NB : i only added the most important packets for now
-    public void loadPlayOut() {
-        final ServerVersion serverVersion = SaltyAPI.get().getServerVersion();
-
         //wrong ids but idfc
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutSpawnEntity"), 0x100);
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutNamedEntitySpawn"), 0x101);
@@ -150,9 +144,9 @@ public class PacketIDClasses {
 
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutPosition"), 0x109);
 
-
-
     }
+
+
 
 
     public Map<Class<?>, Integer> getPacketMap() {
