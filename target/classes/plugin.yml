@@ -1,4 +1,4 @@
 name: Salty
-main: eu.salers.salty.Plugin
-version: 1.0
 author: Salers
+version: 1.0
+main: eu.salers.salty.Plugin

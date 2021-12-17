@@ -41,16 +41,19 @@ public enum PacketType {
     IN_USE_ITEM(0x2F),
 
 
-    OUT_SPAWN_ENTITY(0x100),
-    OUT_NAMED_ENTITY_SPAWN(0x101),
-    OUT_SPAWN_ENTITY_LIVING(0x102),
-    OUT_REL_ENTITY_MOVE(0x103),
-    OUT_REL_ENTITY_MOVE_LOOK(0x104),
-    OUT_ENTITY_VELOCITY(0x105),
-    OUT_EXPLOSION(0x106),
-    OUT_BLOCK_CHANGE(0x107),
-    OUT_TRANSACTION(0x108),
-    OUT_POSITION(0x109);
+    OUT_SPAWN_ENTITY(0x00),
+    OUT_SPAWN_ENTITY_LIVING(0x01),
+    OUT_CHAT(0x0F),
+    OUT_EXPLOSION(0x1C),
+    OUT_KEEP_ALIVE(0x20),
+    OUT_ENTITY_REL_MOVE(0x29),
+    OUT_ENTITY_REL_MOVE_LOOK(0x2A),
+    OUT_ENTITY_LOOK(0x2B),
+    OUT_TRANSACTION(0x30),
+    OUT_TELEPORT(0x62),
+    OUT_VELOCITY(0x4F),
+    OUT_POSITION(0x65);
+
 
     final int id;
 
@@ -62,6 +65,7 @@ public enum PacketType {
      * @param id the packet's id
      * @return the packet related to the id
      */
+
     public static PacketType getById(final int id) {
         final Optional<PacketType> toReturn = Arrays.stream(values()).filter(i -> i.id == id).findAny();
         if (toReturn.isPresent())
