@@ -3,6 +3,7 @@ package eu.salers.salty.packet.type;
 import eu.salers.salty.SaltyAPI;
 import eu.salers.salty.utils.ReflectionUtils;
 import eu.salers.salty.versions.ServerVersion;
+import net.minecraft.server.v1_9_R2.PacketPlayOutEntityEffect;
 
 import java.sql.Ref;
 import java.util.Map;
@@ -146,6 +147,12 @@ public class PacketIDClasses {
         }
 
         packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutPosition"), 0x109);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutEntityEffect"), 0x110);
+        packetMap.put(ReflectionUtils.getClassByPackage(NMS_PACKAGE, "PacketPlayOutRemoveEntityEffect"), 0x111);
+
+
+
+
 
     }
 

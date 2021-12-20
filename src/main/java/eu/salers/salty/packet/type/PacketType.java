@@ -50,7 +50,9 @@ public enum PacketType {
     OUT_EXPLOSION(0x106),
     OUT_BLOCK_CHANGE(0x107),
     OUT_TRANSACTION(0x108),
-    OUT_POSITION(0x109);
+    OUT_POSITION(0x109),
+    OUT_ENTITY_EFFECT(0x110),
+    OUT_REMOVE_ENTITY_EFFECT(0x111);
 
     final int id;
 
