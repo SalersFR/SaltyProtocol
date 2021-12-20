@@ -15,6 +15,12 @@ public class WrappedOutRemoveEntityEffect extends WrappedOutPacket {
     public PotionEffectType getEffectType() {
         return PotionEffectType.getById(get("b"));
     }
-    
+
+    public int getEntityId() {
+        return get("a");
+    }
+
+
+
 }
 

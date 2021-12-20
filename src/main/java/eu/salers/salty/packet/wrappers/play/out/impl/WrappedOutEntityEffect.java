@@ -12,6 +12,11 @@ public class WrappedOutEntityEffect extends WrappedOutPacket {
                 getProtocolVersionClass().getPackageName(), "PacketPlayOutEntityEffect"));
     }
 
+    public int getEntityId() {
+        return get("a");
+    }
+
+
     public PotionEffectType getEffectType() {
         return PotionEffectType.getById(get("b"));
     }
